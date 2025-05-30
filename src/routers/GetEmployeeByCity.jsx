@@ -3,6 +3,7 @@ import axios from 'axios';
 import BackButton from '../components/BackButton';
 
 export default function GetEmployeeByCity() {
+  const BASE_URL = import.meta.env.VITE_API_URL;
   const [city, setCity] = useState('');
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -12,7 +13,7 @@ export default function GetEmployeeByCity() {
 
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:8099/api/v1/employees/city/${city}`);
+      const res = await axios.get(`${BASE_URL}/employees/city/${city}`);
       setEmployees(res.data);
     } catch (err) {
       alert('Error fetching employees by city');

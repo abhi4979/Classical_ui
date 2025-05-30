@@ -32,10 +32,10 @@ export default function AddCustomer() {
     formState: {errors}
   }=useForm({resolver: yupResolver(schema)});
 
-
+ const BASE_URL = import.meta.env.VITE_API_URL;
   const onSubmit= async (data)=>{
      try{
-     await axios.post("http://localhost:8099/api/v1/customer/add",data);
+     await axios.post(`${BASE_URL}/customer/add`,data);
      alert("Customer's details added successfully");
      reset()
      }catch(err){

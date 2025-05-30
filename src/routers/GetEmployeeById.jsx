@@ -3,6 +3,7 @@ import axios from 'axios';
 import BackButton from '../components/BackButton';
 
 export default function GetEmployeeById() {
+  const BASE_URL = import.meta.env.VITE_API_URL;
   const [id, setId] = useState('');
   const [employee, setEmployee] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -12,7 +13,7 @@ export default function GetEmployeeById() {
 
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:8099/api/v1/employees/${id}`);
+      const res = await axios.get(`${BASE_URL}/employees/${id}`);
       setEmployee(res.data);
     } catch (err) {
       alert('Employee not found');

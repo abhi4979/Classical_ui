@@ -6,11 +6,12 @@ export default function GetCustomerByContactFirstName() {
   const [loading, setLoading] = useState(false);
 
   const fetchCustomers = async () => {
+    const BASE_URL = import.meta.env.VITE_API_URL;
     if (!firstname.trim()) return;
 
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8099/api/v1/customer/customer_firstname/${firstname}`);
+      const response = await fetch(`${BASE_URL}/customer/customer_firstname/${firstname}`);
       if (!response.ok) throw new Error("Failed to fetch");
 
       const data = await response.json();

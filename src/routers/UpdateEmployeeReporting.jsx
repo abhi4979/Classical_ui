@@ -10,6 +10,7 @@ const schema = Yup.object().shape({
 });
 
 export default function UpdateEmployeeReporting() {
+    const BASE_URL = import.meta.env.VITE_API_URL;
   const [employeeNumberInput, setEmployeeNumberInput] = useState('');
   const [employeeNumber, setEmployeeNumber] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -27,7 +28,7 @@ export default function UpdateEmployeeReporting() {
 
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:8099/api/v1/employees/${employeeNumberInput}`);
+      const res = await axios.get(`${BASE_URL}/employees/${employeeNumberInput}`);
 
       const employee = res.data;
 
@@ -52,7 +53,7 @@ export default function UpdateEmployeeReporting() {
 
   const onSubmit = async (data) => {
     try {
-      await axios.put(`http://localhost:8099/api/v1/employees/update/${employeeNumber}/reportsto/${data.reportsTo}`);
+      await axios.put(`${BASE_URL}/employees/update/${employeeNumber}/reportsto/${data.reportsTo}`);
       alert('Employee updated successfully!');
     } catch (err) {
       console.error("Update error:", err);

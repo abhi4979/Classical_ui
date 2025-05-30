@@ -6,14 +6,15 @@ export default function CustomerGreaterThanCreditLimit() {
   const [loading, setLoading] = useState(false);
 
   const fetchCustomers = async () => {
+    const BASE_URL = import.meta.env.VITE_API_URL;
     if (!limit || isNaN(limit)) {
       alert("Please enter a valid credit limit.");
       return;
     }
-
+  
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8099/api/v1/customer/More_than/${limit}`);
+      const response = await fetch(`${BASE_URL}/customer/More_than/${limit}`);
       if (!response.ok) throw new Error("Failed to fetch");
 
       const data = await response.json();

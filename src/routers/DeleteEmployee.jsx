@@ -8,6 +8,7 @@ export default function DeleteEmployee() {
   const [loading, setLoading] = useState(false);
 
   const handleDelete = async () => {
+    const BASE_URL = import.meta.env.VITE_API_URL;
     if (!employeeNumber.trim()) {
       alert('Please enter an Employee Number');
       return;
@@ -16,7 +17,7 @@ export default function DeleteEmployee() {
     setLoading(true);
     try {
       const response = await axios.delete(
-        `http://localhost:8099/api/v1/employees/delete/${employeeNumber}`
+        `${BASE_URL}/employees/delete/${employeeNumber}`
       );
       setMessage(response.data.message);
     } catch (error) {

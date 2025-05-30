@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
 function GetCustomer() {
+  const BASE_URL = import.meta.env.VITE_API_URL;
   const [customer,setCustomer]=useState([]);
 
   useEffect(()=>{
     try{
    const fetchdata= async ()=>{
-    const respond= await fetch("http://localhost:8099/api/v1/customer/all");
+    const respond= await fetch(`${BASE_URL}/customer/all`);
     const data=await respond.json();
     setCustomer(data);
    }

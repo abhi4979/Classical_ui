@@ -8,11 +8,12 @@ export default function GetEmployeeByOfficeCode() {
   const [loading, setLoading] = useState(false);
 
   const fetchEmployees = async () => {
+    const BASE_URL = import.meta.env.VITE_API_URL;
     if (!officeCode.trim()) return alert('Please enter an office code');
 
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:8099/api/v1/employees/office/${officeCode}`);
+      const res = await axios.get(`${BASE_URL}/employees/office/${officeCode}`);
       setEmployees(res.data);
     } catch (err) {
       alert('No employees found for this office code');

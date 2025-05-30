@@ -13,6 +13,7 @@ const schema = Yup.object().shape({
 
 
 export default function UpdateCustomerFirstName() {
+    const BASE_URL = import.meta.env.VITE_API_URL;
 
  const [customerNumber, setCustomerNumber] = useState('');
   const [isFetched, setIsFetched] = useState(false);
@@ -29,7 +30,7 @@ export default function UpdateCustomerFirstName() {
 
   const onSubmit = async (formData) => {
    updateCustomer({
-     url: `http://localhost:8099/api/v1/customer/updateFirstName/${customerNumber}/${formData.contactFirstName}`,
+     url: `${BASE_URL}/customer/updateFirstName/${customerNumber}/${formData.contactFirstName}`,
          data: formData,
          onSuccess: ()=> {
           alert("Customer Details updated successfully");
@@ -58,7 +59,7 @@ export default function UpdateCustomerFirstName() {
           />
           <button
             onClick={()=>fetchCustomer({
-             url:`http://localhost:8099/api/v1/customer/${customerNumber}`,
+             url:`${BASE_URL}/customer/${customerNumber}`,
              schema,
              setValue,
              onSuccess:() => setIsFetched(true),

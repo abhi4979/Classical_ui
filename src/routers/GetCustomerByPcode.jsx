@@ -6,6 +6,7 @@ export default function GetCustomerByPcode() {
   const [loading, setLoading] = useState(false);
 
   const fetchCustomers = async () => {
+      const BASE_URL = import.meta.env.VITE_API_URL;
     if (!postalCode.trim()) {
       alert("Please enter a postal code");
       return;
@@ -13,7 +14,7 @@ export default function GetCustomerByPcode() {
 
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:8099/api/v1/customer/postal_code/${postalCode}`);
+      const res = await fetch(`${BASE_URL}/customer/postal_code/${postalCode}`);
       if (!res.ok) throw new Error("Failed to fetch customers");
       const data = await res.json();
       setCustomers(data);

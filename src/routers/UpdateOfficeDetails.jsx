@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function MapEmployeeToOffice() {
+    const BASE_URL = import.meta.env.VITE_API_URL;
   const [employees, setEmployees] = useState([]);
   const [offices, setOffices] = useState([]);
   const [selectedEmployee, setSelectedEmployee] = useState('');
@@ -9,12 +10,12 @@ export default function MapEmployeeToOffice() {
 
   useEffect(() => {
     // Fetch employees
-    axios.get('http://localhost:8099/api/v1/employees/all')
+    axios.get( `${BASE_URL}/employees/all`)
       .then(res => setEmployees(res.data))
       .catch(() => alert('Failed to fetch employees'));
 
     // Fetch offices
-    axios.get('http://localhost:8099/api/v1/offices/get')
+    axios.get(`${BASE_URL}/offices/get`)
       .then(res => setOffices(res.data))
       .catch(() => alert('Failed to fetch offices'));
   }, []);
@@ -27,7 +28,7 @@ export default function MapEmployeeToOffice() {
 
     try {
       await axios.put(
-        `http://localhost:8099/api/v1/employees/update/${selectedEmployee}/map to office/${selectedOffice}`
+        `${BASE_URL}/employees/update/${selectedEmployee}/map to office/${selectedOffice}`
       );
       alert('Employee successfully mapped to office!');
     } catch {

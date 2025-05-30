@@ -6,6 +6,7 @@ export default function GetCustomerByOfficecode() {
   const [loading, setLoading] = useState(false);
 
   const fetchCustomers = async () => {
+     const BASE_URL = import.meta.env.VITE_API_URL;
     if (!officeCode.trim()) {
       alert("Please enter an office code");
       return;
@@ -13,7 +14,7 @@ export default function GetCustomerByOfficecode() {
 
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8099/api/v1/customer/office/${officeCode}`);
+      const response = await fetch(`${BASE_URL}/customer/office/${officeCode}`);
       if (!response.ok) throw new Error("Failed to fetch customers");
       const data = await response.json();
       setCustomers(data);
