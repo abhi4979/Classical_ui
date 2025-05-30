@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Customer from './routers/Customer';
+import App from '../App';
+
 
 function Customer() {
   const links = [
@@ -45,4 +46,4 @@ function Customer() {
   );
 }
 
-export default Customer;
+export default App;
