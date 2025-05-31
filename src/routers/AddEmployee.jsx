@@ -25,7 +25,7 @@ export default function AddEmployee() {
 const BASE_URL = import.meta.env.VITE_API_URL;
   const onSubmit = async (data) => {
     try {
-      await axios.post(`${BASE_URL}/employees/add`, data);
+      await axios.post(`${BASE_URL}/api/v1/employees/add`, data);
       alert('Employee added successfully!');
       reset();
     } catch (err) {

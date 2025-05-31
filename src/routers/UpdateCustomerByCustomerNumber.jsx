@@ -39,7 +39,7 @@ export default function UpdateCustomerByCustomerNumber() {
   // Submit form data
   const onSubmit = async (formData) => {
        updateCustomer({
-         url: `${BASE_URL}/customer/update/${customerNumber}`,
+         url: `${BASE_URL}/api/v1/customer/update/${customerNumber}`,
          data: formData,
          onSuccess: ()=> {
           alert("Customer Details updated successfully");
@@ -66,7 +66,7 @@ export default function UpdateCustomerByCustomerNumber() {
         />
         <button
          onClick={() => fetchCustomer({
-          url: `${BASE_URL}/customer/${customerNumber}`,
+          url: `${BASE_URL}/api/v1/customer/${customerNumber}`,
          schema,
          setValue
         })}

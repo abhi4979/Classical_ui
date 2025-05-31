@@ -13,7 +13,7 @@ export default function GetEmployeeByCity() {
 
     setLoading(true);
     try {
-      const res = await axios.get(`${BASE_URL}/employees/city/${city}`);
+      const res = await axios.get(`${BASE_URL}/api/v1/employees/city/${city}`);
       setEmployees(res.data);
     } catch (err) {
       alert('Error fetching employees by city');

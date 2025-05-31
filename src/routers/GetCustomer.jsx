@@ -5,17 +5,17 @@ function GetCustomer() {
   const [customer,setCustomer]=useState([]);
 
   useEffect(()=>{
-    try{
+   
    const fetchdata= async ()=>{
-    const respond= await fetch(`${BASE_URL}/customer/all`);
+    console.log("BASE_URL:", BASE_URL);
+console.log("BASE_URL:", BASE_URL);
+    const respond= await fetch('https://classical-model-business.onrender.com/api/v1/customer/all');
     const data=await respond.json();
     setCustomer(data);
-   }
-
-    fetchdata();
-  }catch(error){
-    alert("Error Found",error);
-  }
+   
+    
+   };
+   fetchdata();
   },[])
 
   return (

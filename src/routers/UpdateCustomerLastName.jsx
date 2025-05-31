@@ -30,7 +30,7 @@ export default function UpdateCustomerFirstName() {
 
   const onSubmit = async (formData) => {
    updateCustomer({
-     url: `${BASE_URL}/customer/updateLastName/${customerNumber}/${formData.contactLastName}`,
+     url: `${BASE_URL}/api/v1/customer/updateLastName/${customerNumber}/${formData.contactLastName}`,
          data: formData,
          onSuccess: ()=> {
           alert("Customer Details updated successfully");

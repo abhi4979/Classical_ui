@@ -13,7 +13,7 @@ export default function GetEmployeeById() {
 
     setLoading(true);
     try {
-      const res = await axios.get(`${BASE_URL}/employees/${id}`);
+      const res = await axios.get(`${BASE_URL}/api/v1/employees/${id}`);
       setEmployee(res.data);
     } catch (err) {
       alert('Employee not found');

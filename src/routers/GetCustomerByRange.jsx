@@ -13,7 +13,7 @@ export default function GetCustomerByRange() {
     try {
       const BASE_URL = import.meta.env.VITE_API_URL;
       const response = await fetch(
-        `${BASE_URL}/customer/credit_range/${minLimit}/${maxLimit}`
+        `${BASE_URL}/api/v1/customer/credit_range/${minLimit}/${maxLimit}`
       );
       const data = await response.json();
       setCustomers(data);

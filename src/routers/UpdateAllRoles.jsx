@@ -28,7 +28,7 @@ export default function UpdateEmployeeRoles() {
 
     setLoading(true);
     try {
-      const res = await axios.get(`${BASE_URL}/employees/${employeeNumberInput}`);
+      const res = await axios.get(`${BASE_URL}/api/v1/employees/${employeeNumberInput}`);
 
       const employee = res.data;
 
@@ -50,7 +50,7 @@ export default function UpdateEmployeeRoles() {
 
   const onSubmit = async (data) => {
     try {
-      await axios.put(`${BASE_URL}/employees/update/${employeeNumber}/role/${data.jobTitle}`);
+      await axios.put(`${BASE_URL}/api/v1/employees/update/${employeeNumber}/role/${data.jobTitle}`);
       alert('Employee updated successfully!');
     } catch (err) {
       alert('Error updating employee');

@@ -35,7 +35,7 @@ export default function AddCustomer() {
  const BASE_URL = import.meta.env.VITE_API_URL;
   const onSubmit= async (data)=>{
      try{
-     await axios.post(`${BASE_URL}/customer/add`,data);
+     await axios.post(`${BASE_URL}/api/v1/customer/add`,data);
      alert("Customer's details added successfully");
      reset()
      }catch(err){

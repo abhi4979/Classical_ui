@@ -11,7 +11,7 @@ export default function GetCustomerByContactLastName() {
 
     setLoading(true);
     try {
-      const response = await fetch(`${BASE_URL}/customer/customer_lastname/${lastname}`);
+      const response = await fetch(`${BASE_URL}/api/v1/customer/customer_lastname/${lastname}`);
       if (!response.ok) throw new Error("Failed to fetch");
 
       const data = await response.json();

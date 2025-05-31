@@ -14,7 +14,7 @@ export default function GetCustomerByOfficecode() {
 
     setLoading(true);
     try {
-      const response = await fetch(`${BASE_URL}/customer/office/${officeCode}`);
+      const response = await fetch(`${BASE_URL}/api/v1/customer/office/${officeCode}`);
       if (!response.ok) throw new Error("Failed to fetch customers");
       const data = await response.json();
       setCustomers(data);

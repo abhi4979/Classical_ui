@@ -2,7 +2,7 @@
 import './App.css'
 import { Routes,Route } from 'react-router-dom'
 import Home from './routers/Home'
-import Customer from './routers/Customer'
+import Customer from './routers/customer'
 import Employee from './routers/employee'
 import AddCustomer from './routers/AddCustomer'
 import GetCustomer from './routers/GetCustomer'

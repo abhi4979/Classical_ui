@@ -13,7 +13,7 @@ export default function GetEmployeeByOfficeCode() {
 
     setLoading(true);
     try {
-      const res = await axios.get(`${BASE_URL}/employees/office/${officeCode}`);
+      const res = await axios.get(`${BASE_URL}/api/v1/employees/office/${officeCode}`);
       setEmployees(res.data);
     } catch (err) {
       alert('No employees found for this office code');

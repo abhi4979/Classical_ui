@@ -10,7 +10,7 @@ export default function MapEmployeeToOffice() {
 
   useEffect(() => {
     // Fetch employees
-    axios.get( `${BASE_URL}/employees/all`)
+    axios.get( `${BASE_URL}/api/v1/employees/all`)
       .then(res => setEmployees(res.data))
       .catch(() => alert('Failed to fetch employees'));
 
@@ -28,7 +28,7 @@ export default function MapEmployeeToOffice() {
 
     try {
       await axios.put(
-        `${BASE_URL}/employees/update/${selectedEmployee}/map to office/${selectedOffice}`
+        `${BASE_URL}/api/v1/employees/update/${selectedEmployee}/map to office/${selectedOffice}`
       );
       alert('Employee successfully mapped to office!');
     } catch {

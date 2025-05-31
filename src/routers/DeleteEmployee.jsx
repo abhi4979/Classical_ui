@@ -17,7 +17,7 @@ export default function DeleteEmployee() {
     setLoading(true);
     try {
       const response = await axios.delete(
-        `${BASE_URL}/employees/delete/${employeeNumber}`
+        `${BASE_URL}/api/v1/employees/delete/${employeeNumber}`
       );
       setMessage(response.data.message);
     } catch (error) {

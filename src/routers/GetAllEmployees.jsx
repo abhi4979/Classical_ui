@@ -9,7 +9,7 @@ export default function GetAllEmployees() {
   const fetchEmployees = async () => {
     const BASE_URL = import.meta.env.VITE_API_URL;
     try {
-      const res = await axios.get(`${BASE_URL}/employees/all`);
+      const res = await axios.get(`${BASE_URL}/api/v1/employees/all`);
       setEmployees(res.data);
     } catch (err) {
       alert('Error fetching employee data');

@@ -14,7 +14,7 @@ export default function CustomerLessThanCreditLimit() {
 
     setLoading(true);
     try {
-      const response = await fetch(`${BASE_URL}/customer/less_than/${limit}`);
+      const response = await fetch(`${BASE_URL}/api/v1/customer/less_than/${limit}`);
       if (!response.ok) throw new Error("Failed to fetch");
 
       const data = await response.json();

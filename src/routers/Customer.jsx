@@ -46,4 +46,4 @@ function Customer() {
   );
 }
 
-export default App;
+export default Customer;

@@ -14,7 +14,7 @@ export default function GetCustomerByPcode() {
 
     setLoading(true);
     try {
-      const res = await fetch(`${BASE_URL}/customer/postal_code/${postalCode}`);
+      const res = await fetch(`${BASE_URL}/api/v1/customer/postal_code/${postalCode}`);
       if (!res.ok) throw new Error("Failed to fetch customers");
       const data = await res.json();
       setCustomers(data);
